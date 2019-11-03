@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:rowCount="6"
-    android:columnCount="4"
-    android:orientation="horizontal">
+    android:columnCount="8"
+    android:orientation="horizontal"
+    android:layout_gravity="fill_horizontal"
+    >
 
-
+    <TextView
+        android:id="@+id/text_view"
+        android:textSize="30dp"
+        android:layout_row="0"
+        android:layout_columnSpan="8"
+        android:layout_gravity="bottom"
+        />
+    <Button
+        android:id="@+id/buttoncm"
+        android:text="cm"/>
+    <Button
+        android:id="@+id/button2"
+        android:text="2进制"/>
+    <Button
+        android:id="@+id/buttonF"
+        android:text="F"/>
+    <Button
+        android:id="@+id/buttonA"
+        android:text="A"/>
     <Button
         android:id="@+id/button10"
         android:text="C"/>
@@ -20,6 +40,18 @@
         android:id="@+id/button13"
         android:text="DEL"/>
     <Button
+        android:id="@+id/buttonm"
+        android:text="m"/>
+    <Button
+        android:id="@+id/button8"
+        android:text="8进制"/>
+    <Button
+        android:id="@+id/buttonln"
+        android:text="ln"/>
+    <Button
+        android:id="@+id/buttonB"
+        android:text="B"/>
+    <Button
         android:id="@+id/button20"
         android:text="7"/>
     <Button
@@ -32,6 +64,18 @@
         android:id="@+id/button23"
         android:text="-"/>
     <Button
+        android:id="@+id/buttonml"
+        android:text="mL"/>
+    <Button
+        android:id="@+id/button10o"
+        android:text="10进制"/>
+    <Button
+        android:id="@+id/buttoncos"
+        android:text="cos"/>
+    <Button
+        android:id="@+id/buttonC"
+        android:text="C"/>
+    <Button
         android:id="@+id/button30"
         android:text="4"/>
     <Button
@@ -43,6 +87,18 @@
     <Button
         android:id="@+id/button33"
         android:text="+"/>
+    <Button
+        android:id="@+id/buttonL"
+        android:text="L"/>
+    <Button
+        android:id="@+id/button16"
+        android:text="16进制"/>
+    <Button
+        android:id="@+id/buttonsin"
+        android:text="sin"/>
+    <Button
+        android:id="@+id/buttonD"
+        android:text="D"/>
     <Button
         android:id="@+id/button40"
         android:text="1"/>
@@ -58,9 +114,21 @@
         android:layout_rowSpan="2"
         android:layout_gravity="fill_vertical"/>
     <Button
+        android:id="@+id/buttonsqu"
+        android:text="开方"/>
+    <Button
+        android:id="@+id/buttonLeft"
+        android:text="("/>
+    <Button
+        android:id="@+id/buttonRight"
+        android:text=")"/>
+    <Button
+        android:id="@+id/buttonE"
+        android:text="E"/>
+    <Button
         android:id="@+id/button50"
         android:layout_row="5"
-        android:layout_column="0"
+        android:layout_column="4"
         android:layout_columnSpan="2"
         android:layout_gravity="fill_horizontal"
         android:text="0"/>
