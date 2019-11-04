@@ -12,11 +12,20 @@ import android.widget.TextView;
 import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
-
+    boolean flag2 = false;
+    boolean flag8 = false;
+    boolean flag10 = false;
+    boolean flag16 = false;
+    boolean flagcm = false;
+    boolean flagm = false;
+    boolean flagml = false;
+    boolean flagl= false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         Button buttonC = (Button) findViewById(R.id.button10);
 
         Button buttonAdd = (Button) findViewById(R.id.button33);
@@ -105,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     double result = translate(textView.getText().toString());
+                    result = Math.toRadians(result);
                     result = Math.sin(result);
                     String str = String.valueOf(result);
                     textView.setText(str);
@@ -114,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
             btCos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    double result = translate(textView.getText().toString());
+                    Double result = translate(textView.getText().toString());
+                    result = Math.toRadians(result);
                     result = Math.cos(result);
                     String str = String.valueOf(result);
                     textView.setText(str);
@@ -126,6 +137,177 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     textView.setText(textView.getText() + ")");
+                }
+            });
+
+            btA.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textView.setText(textView.getText() + "A");
+                }
+            });
+
+            btB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textView.setText(textView.getText() + "B");
+                }
+            });
+
+            btC.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textView.setText(textView.getText() + "C");
+                }
+            });
+
+            btD.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textView.setText(textView.getText() + "D");
+                }
+            });
+
+            btE.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textView.setText(textView.getText() + "E");
+                }
+            });
+
+            btF.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textView.setText(textView.getText() + "F");
+                }
+            });
+
+           bt2.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   if(flag10){
+                       System.out.println(flag10);
+                       double result = translate(textView.getText().toString());
+                       String str = Integer.toBinaryString((int)result);
+                       textView.setText(str);
+                       flag10 = false;
+                   }
+                   else if(flag8){
+                       String str = Integer.toBinaryString(Integer.parseInt(textView.getText().toString(), 8));
+                       textView.setText(str);
+                       flag8 = false;
+                   }
+                   else if(flag16){
+                       String str = Integer.toBinaryString(Integer.parseInt(textView.getText().toString(), 16));
+                       textView.setText(str);
+                       flag16 = false;
+                   }
+                   else
+                       flag2 = true;
+
+               }
+           });
+
+            bt8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(flag10){
+                        double result = translate(textView.getText().toString());
+                        String str = Integer.toOctalString((int)result);
+                        textView.setText(str);
+                        flag10 = false;
+                    }
+                    else if(flag2){
+                        String str = Integer.toOctalString(Integer.parseInt(textView.getText().toString(), 2));
+                        textView.setText(str);
+                        flag2 = false;
+                    }
+                    else if(flag16){
+                        String str = Integer.toOctalString(Integer.parseInt(textView.getText().toString(), 16));
+                        textView.setText(str);
+                        flag16 = false;
+                    }
+                    else
+                        flag8 = true;
+
+                }
+            });
+
+            bt10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(flag2){
+                        String str = String.valueOf(Integer.parseInt(textView.getText().toString(), 2));
+                        textView.setText(str);
+                        flag2 = false;
+
+                    }
+                    else if(flag16){
+                        String str = String.valueOf(Integer.parseInt(textView.getText().toString(), 16));
+                        textView.setText(str);
+                        flag16 = false;
+                    }
+                    else if(flag8){
+                        String str = String.valueOf(Integer.parseInt(textView.getText().toString(), 8));
+                        textView.setText(str);
+                        flag8 = false;
+                    }
+                    else
+                        flag10 = true;
+
+                }
+            });
+
+            bt16.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(flag10){
+                        double result = translate(textView.getText().toString());
+                        String str = Integer.toHexString((int)result);
+                        textView.setText(str);
+                        flag10 = false;
+                    }
+                    else if(flag2){
+                        String str = Integer.toHexString(Integer.parseInt(textView.getText().toString(), 2));
+                        textView.setText(str);
+                        flag10 = false;
+                    }
+                    else if(flag8){
+                        String str = Integer.toHexString(Integer.parseInt(textView.getText().toString(), 8));
+                        textView.setText(str);
+                        flag8 = false;
+                    }
+                    else
+                        flag16 = true;
+
+                }
+            });
+
+            btCm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+
+            btM.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+
+            btMl.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+
+            btL.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
                 }
             });
         }
