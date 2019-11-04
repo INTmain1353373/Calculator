@@ -3,6 +3,7 @@ package com.example.calculator;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch(item.getItemId()){
             case R.id.help_item:
-                Toast.makeText(this, "You clicked Help", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Help.class);
+                startActivity(intent);
                 break;
             default:
         }
@@ -140,8 +142,8 @@ public class MainActivity extends AppCompatActivity {
                     double result = translate(textView.getText().toString());
                     result = Math.toRadians(result);
                     result = Math.sin(result);
-                    String str = String.valueOf(result);
-                    textView.setText(str);
+
+                    textView.setText(String.format("%.2f",result));
                 }
             });
 
@@ -151,8 +153,7 @@ public class MainActivity extends AppCompatActivity {
                     Double result = translate(textView.getText().toString());
                     result = Math.toRadians(result);
                     result = Math.cos(result);
-                    String str = String.valueOf(result);
-                    textView.setText(str);
+                    textView.setText(String.format("%.2f",result));
                 }
             });
 
@@ -649,7 +650,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         double result = stack2.pop();
-        return result + "";
+        return String.format("%.2f", result);
     }
 
 
