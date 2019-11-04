@@ -15,7 +15,7 @@
         />
     <Button
         android:id="@+id/button10"
-        android:text="C"/>
+        android:text="AC"/>
     <Button
         android:id="@+id/button11"
         android:text="/"/>
