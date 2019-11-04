@@ -2,6 +2,7 @@ package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,11 +42,93 @@ public class MainActivity extends AppCompatActivity {
         Button btB = (Button) findViewById(R.id.buttonB);
         Button btC = (Button) findViewById(R.id.buttonC);
         Button btD = (Button) findViewById(R.id.buttonD);
+        Button btE = (Button) findViewById(R.id.buttonE);
+        Button btF = (Button) findViewById(R.id.buttonF);
+
+        Button btLn = (Button) findViewById(R.id.buttonln);
+        Button btCos = (Button) findViewById(R.id.buttoncos);
+        Button btSin = (Button) findViewById(R.id.buttonsin);
+
+        Button btLeft = (Button) findViewById(R.id.buttonLeft);
+        Button btRight = (Button) findViewById(R.id.buttonRight);
+
+        Button btCm = (Button) findViewById(R.id.buttoncm);
+        Button btM = (Button) findViewById(R.id.buttonm);
+        Button btMl = (Button) findViewById(R.id.buttonml);
+        Button btL = (Button) findViewById(R.id.buttonL);
+
+        Button btS = (Button) findViewById(R.id.buttonsqu);
+
+        Button bt2 = (Button) findViewById(R.id.button2);
+        Button bt8 = (Button) findViewById(R.id.button8);
+        Button bt10 = (Button) findViewById(R.id.button10o);
+        Button bt16 = (Button) findViewById(R.id.button16);
 
         Button buttonCount = (Button) findViewById(R.id.button43);
 
 
         final TextView textView = (TextView) findViewById(R.id.text_view);
+
+        Configuration mConfiguration = this.getResources().getConfiguration();
+        int ori = mConfiguration.orientation;
+
+        if(ori == mConfiguration.ORIENTATION_LANDSCAPE) {
+
+            btLeft.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textView.setText(textView.getText() + "(");
+                }
+            });
+
+            btS.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    double result = translate(textView.getText().toString());
+                    result = Math.sqrt(result);
+                    String str = String.valueOf(result);
+                    textView.setText(str);
+                }
+            });
+
+            btLn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    double result = translate(textView.getText().toString());
+                    result = Math.log(result);
+                    String str = String.valueOf(result);
+                    textView.setText(str);
+                }
+            });
+
+            btSin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    double result = translate(textView.getText().toString());
+                    result = Math.sin(result);
+                    String str = String.valueOf(result);
+                    textView.setText(str);
+                }
+            });
+
+            btCos.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    double result = translate(textView.getText().toString());
+                    result = Math.cos(result);
+                    String str = String.valueOf(result);
+                    textView.setText(str);
+                }
+            });
+
+
+            btRight.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    textView.setText(textView.getText() + ")");
+                }
+            });
+        }
 
         buttonPoint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,6 +257,27 @@ public class MainActivity extends AppCompatActivity {
                textView.setText(Count(textView));
             }
         });
+    }
+
+    public double translate(String str){//将字符数据转化为数值
+        double value = 0.0;
+        int flag = 1;
+        for(int i = 0; i < str.length(); i++){
+            if (str.charAt(i) == '.') {
+                flag = -1;
+                continue;
+            }
+            else if (flag == 1) {
+                value = value * 10 + str.charAt(i) - '0';
+                System.out.println(value);
+            } else {
+                value = value + Math.pow(10, flag) * (str.charAt(i) - '0');
+                System.out.println(value);
+                flag--;
+            }
+        }
+
+        return value;
     }
 
     public boolean isOperate(char c){//判断字符串是否是运算符

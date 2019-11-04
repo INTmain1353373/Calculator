@@ -15,12 +15,16 @@
         android:layout_columnSpan="8"
         android:layout_gravity="bottom"
         />
+
     <Button
         android:id="@+id/buttoncm"
-        android:text="cm"/>
+        android:layout_width="50dp"
+        android:text="cm" />
+
     <Button
         android:id="@+id/button2"
-        android:text="2进制"/>
+        android:layout_width="70dp"
+        android:text="2进制" />
     <Button
         android:id="@+id/buttonF"
         android:text="F"/>
@@ -39,12 +43,16 @@
     <Button
         android:id="@+id/button13"
         android:text="DEL"/>
+
     <Button
         android:id="@+id/buttonm"
-        android:text="m"/>
+        android:layout_width="50dp"
+        android:text="m" />
+
     <Button
         android:id="@+id/button8"
-        android:text="8进制"/>
+        android:layout_width="70dp"
+        android:text="8进制" />
     <Button
         android:id="@+id/buttonln"
         android:text="ln"/>
@@ -63,12 +71,16 @@
     <Button
         android:id="@+id/button23"
         android:text="-"/>
+
     <Button
         android:id="@+id/buttonml"
-        android:text="mL"/>
+        android:layout_width="50dp"
+        android:text="mL" />
+
     <Button
         android:id="@+id/button10o"
-        android:text="10进制"/>
+        android:layout_width="70dp"
+        android:text="10进制" />
     <Button
         android:id="@+id/buttoncos"
         android:text="cos"/>
@@ -87,12 +99,16 @@
     <Button
         android:id="@+id/button33"
         android:text="+"/>
+
     <Button
         android:id="@+id/buttonL"
-        android:text="L"/>
+        android:layout_width="50dp"
+        android:text="L" />
+
     <Button
         android:id="@+id/button16"
-        android:text="16进制"/>
+        android:layout_width="70dp"
+        android:text="16进制" />
     <Button
         android:id="@+id/buttonsin"
         android:text="sin"/>
@@ -113,12 +129,16 @@
         android:text="="
         android:layout_rowSpan="2"
         android:layout_gravity="fill_vertical"/>
+
     <Button
         android:id="@+id/buttonsqu"
-        android:text="开方"/>
+        android:layout_width="55dp"
+        android:text="开方" />
+
     <Button
         android:id="@+id/buttonLeft"
-        android:text="("/>
+        android:layout_width="70dp"
+        android:text="(" />
     <Button
         android:id="@+id/buttonRight"
         android:text=")"/>
