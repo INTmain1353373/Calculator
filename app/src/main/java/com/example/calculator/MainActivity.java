@@ -1,13 +1,17 @@
 package com.example.calculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Stack;
 
@@ -20,10 +24,30 @@ public class MainActivity extends AppCompatActivity {
     boolean flagm = false;
     boolean flagml = false;
     boolean flagl= false;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.help_item:
+                Toast.makeText(this, "You clicked Help", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+        }
+        return true;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
 
         Button buttonC = (Button) findViewById(R.id.button10);
@@ -243,6 +267,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                     else if(flag16){
+                        System.out.println(textView.getText().toString());
                         String str = String.valueOf(Integer.parseInt(textView.getText().toString(), 16));
                         textView.setText(str);
                         flag16 = false;
@@ -286,28 +311,53 @@ public class MainActivity extends AppCompatActivity {
             btCm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    if(flagm){
+                        double result = translate(textView.getText().toString()) * 100;
+                        textView.setText(String.valueOf(result) + "cm");
+                        flagm = false;
+                    }
+                    else
+                        flagcm = true;
                 }
             });
 
             btM.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    if(flagcm){
+                        double result = translate(textView.getText().toString()) / 100;
+                        textView.setText(String.valueOf(result) + "m");
+                        flagcm = false;
+                    }
+                    else
+                        flagm = true;
                 }
             });
 
             btMl.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    if(flagl){
+                        double result = translate(textView.getText().toString()) * 1000;
+                        textView.setText(String.valueOf(result) + "mL");
+                        flagl = false;
+                    }
+                    else
+                        flagml = true;
                 }
             });
+
 
             btL.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    if(flagml){
+                        double result = translate(textView.getText().toString()) / 1000;
+                        textView.setText(String.valueOf(result) + "L");
+                        flagml = false;
+                    }
+                    else
+                        flagl = true;
                 }
             });
         }
